@@ -1,0 +1,13 @@
+compilers:
+  omega:
+    type: singleFile
+    dir: omega-{{name}}
+    filename: omc
+    url: https://raw.githubusercontent.com/aien-dev/omega-mv/{{commit}}/seed/out/omc
+    check_file: omc
+    after_stage_script:
+      - echo "{{omc_sha256}}  {{dir}}/{{filename}}" | sha256sum --check --strict -
+    targets:
+      - name: e5b32567
+        commit: e5b32567a7aff3ce594e3254a622a846a6cd190b
+        omc_sha256: 2c82480596bbdc50cda9626866209ef662d5834f278f839ff4ce0250c495029f
